@@ -1,0 +1,39 @@
+.jumbotron-fluid{
+    text-align: center;
+    height: 129px;
+    background-color: #88A1AA;
+}
+.sidenav{
+    background-color: #9CC1BC;
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    top: 17.2%;
+}
+#search{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+#searchBar{
+    margin: 10px;
+    width: 50%;
+    
+}
+.btn-light{
+    margin: 20px;
+    position: relative;
+    float: left;
+}
+#city{
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid black;
+    width: 80%;
+    float: right;
+}
+#forecast{
+    background-color: white;
+    border: 1px solid black;
+    width: 80%;
+    float: right;
+}

@@ -25,8 +25,6 @@ function displayWeather(){
       console.log(response)
       
       $("#name").html("<h3>" + response.name + " " + date + "</h3>")
-    //   var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
-    //       $("#img").append(icon)
       $("#temp").html("<p> Temperature: " + response.main.temp + "°F")
       $("#humidity").html("<p> Humidity: " + response.main.humidity + "%</p>")
       $("#wind").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>")
@@ -53,6 +51,22 @@ function displayWeather(){
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
         $("#img").html(icon)
       }
+
+      var lat = response.coord.lat
+      var lon = response.coord.lon
+      console.log(lat)
+      console.log(lon)
+      var uvURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=81481b28398acfb07db612f9d04e7e45&lat=" + lat + "&lon=" + lon 
+
+    $.ajax({
+        url: uvURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response)
+        var uv = response[0].value
+        
+        $("#uv").html("<p> UV index: " + uv + "</p>")
+    })
     })
 }
 function displayWeathers(){

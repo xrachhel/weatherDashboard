@@ -2,8 +2,16 @@
 var date = moment().format("l")
 var day1 = moment(new Date()).add(1, "days").format("l")
 var day2 = moment(new Date()).add(2, "days").format("l")
+var day3 = moment(new Date()).add(3, "days").format("l")
+var day4 = moment(new Date()).add(4, "days").format("l")
+var day5 = moment(new Date()).add(5, "days").format("l")
 
-console.log(day2)
+$(".ch1").append("<h5>" + day1 + "</h5>")
+$(".ch2").append("<h5>" + day2 + "</h5>")
+$(".ch3").append("<h5>" + day3 + "</h5>")
+$(".ch4").append("<h5>" + day4 + "</h5>")
+$(".ch5").append("<h5>" + day5 + "</h5>")
+
 
 function displayWeather(){
     var city = $("#searchBar").val()
@@ -75,7 +83,6 @@ for (var i = 0; i < cities.length; i ++){
     newButton.text(cities[i])
     newButton.attr("data-name", cities[i])
     newButton.addClass("btn btn-light newCity")
-    // newButton.attr("id", "newCity")
     $("#buttonsGoHere").append(newButton)
 }
 }

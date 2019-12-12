@@ -2,13 +2,17 @@
     text-align: center;
     height: 129px;
     background-color: #88A1AA;
+    
 }
 .sidenav{
     background-color: #9CC1BC;
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 25%;
     position: fixed;
     z-index: -1;
+    
 }
 #search{
     padding-top: 10px;
@@ -38,7 +42,7 @@
     width: 80%;
     float: right;
 }
-#newCity{
+.newCity{
     margin-left: 10px;
     margin-bottom: 0;
     width: 90%

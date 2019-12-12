@@ -37,8 +37,16 @@ function displayWeather(){
           var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/09d.png")
           $("#img").html(icon)
       }
-      else if (response.weather === "Clear"){
+      else if (main === "Clear"){
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/01d.png")
+        $("#img").html(icon)
+      }
+      else if (main === "Mist"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/50d.png")
+        $("#img").html(icon)
+      }
+      else if (main === "Clouds"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/03d.png")
         $("#img").html(icon)
       }
       

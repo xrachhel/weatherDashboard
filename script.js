@@ -63,11 +63,27 @@ function displayWeather(){
         method: "GET"
     }).then(function(response){
         console.log(response)
-        var uv = response[0].value
-        var uvBtn = $("<button></button>").text(uv)
-        uvBtn.addClass("btn btn-danger")
-        $("#uv").html(uvBtn)
-        // $("#uv").html("<p> UV index: " + uv + "</p>")
+        console.log(response[0].value)
+        if (response[0].value >= "8"){
+            var uv = "UV Index:  " + response[0].value
+            var uvBtn = $("<button></button>").text(uv)
+            uvBtn.addClass("btn btn-danger")
+            $("#uv").html(uvBtn)
+        }
+        else if (response[0].value >= "3" && response[0].value <= "7" ){
+            var uv = "UV Index:  " + response[0].value
+            var uvBtn = $("<button></button>").text(uv)
+            uvBtn.addClass("btn btn-warning")
+            $("#uv").html(uvBtn)
+        }
+        else if (response[0].value < "3"){
+            var uv = "UV Index:  " + response[0].value
+            var uvBtn = $("<button></button>").text(uv)
+            uvBtn.addClass("btn btn-success")
+            $("#uv").html(uvBtn)
+        }
+
+        
     })
     })
 }
@@ -88,6 +104,12 @@ function displayWeathers(){
       $("#wind").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>")
 
     })
+    localStorage.setItem("city", city)
+}
+
+function getStoredCities(){
+    var cities = localStorage.getItem("city")
+    
 }
 
 function displayForecast(){
@@ -129,5 +151,7 @@ for (var i = 0; i < cities.length; i ++){
 
 
 $(document).on("click", ".newCity", displayWeathers)
+
+
 
 

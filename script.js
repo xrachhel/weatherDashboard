@@ -64,8 +64,10 @@ function displayWeather(){
     }).then(function(response){
         console.log(response)
         var uv = response[0].value
-        
-        $("#uv").html("<p> UV index: " + uv + "</p>")
+        var uvBtn = $("<button></button>").text(uv)
+        uvBtn.addClass("btn btn-danger")
+        $("#uv").html(uvBtn)
+        // $("#uv").html("<p> UV index: " + uv + "</p>")
     })
     })
 }

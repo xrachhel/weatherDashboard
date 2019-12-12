@@ -25,10 +25,23 @@ function displayWeather(){
       console.log(response)
       
       $("#name").html("<h3>" + response.name + " " + date + "</h3>")
+    //   var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d@2x.png")
+    //       $("#img").append(icon)
       $("#temp").html("<p> Temperature: " + response.main.temp + "°F")
       $("#humidity").html("<p> Humidity: " + response.main.humidity + "%</p>")
       $("#wind").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>")
+      console.log(response.weather[0].main)
 
+      var main = response.weather[0].main
+      if(main === "Rain"){
+          var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/09d.png")
+          $("#img").html(icon)
+      }
+      else if (response.weather === "Clear"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/01d.png")
+        $("#img").html(icon)
+      }
+      
     })
 }
 function displayWeathers(){

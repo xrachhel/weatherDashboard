@@ -8,7 +8,7 @@
     height: 100%;
     width: 25%;
     position: fixed;
-    top: 17.2%;
+    z-index: -1;
 }
 #search{
     padding-top: 10px;
@@ -30,10 +30,20 @@
     border: 1px solid black;
     width: 80%;
     float: right;
+    
 }
 #forecast{
     background-color: white;
     border: 1px solid black;
     width: 80%;
     float: right;
+}
+#newCity{
+    margin-left: 10px;
+    margin-bottom: 0;
+    width: 90%
+    
+}
+.card{
+    margin: 4px;
 }

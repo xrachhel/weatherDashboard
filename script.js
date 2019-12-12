@@ -49,7 +49,10 @@ function displayWeather(){
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/03d.png")
         $("#img").html(icon)
       }
-      
+      else if (main === "Snow"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
+        $("#img").html(icon)
+      }
     })
 }
 function displayWeathers(){

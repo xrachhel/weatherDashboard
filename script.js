@@ -86,11 +86,11 @@ function displayWeather(){
             uvBtn.addClass("btn btn-success")
             $("#uv").html(uvBtn)
         }
-
+        
         
     })
     })
-    localStorage.setItem("city", city)
+    // localStorage.setItem("city", city)
 }
 function displayWeathers(){
     var city = $(this).attr("data-name")
@@ -321,20 +321,32 @@ $("#submit").on("click", function(){
     displayForecast()
     var city = $("#searchBar").val()
     cities.push(city)
-    createButton()
+    
+    localStorage.setItem("city", JSON.stringify(cities))
+    createButton();
 })
 
-
+createButton()
 var cities = [];
 function createButton(){
     $("#buttonsGoHere").empty()
-for (var i = 0; i < cities.length; i ++){
-    var newButton = $("<button></button>")
-    newButton.text(cities[i])
-    newButton.attr("data-name", cities[i])
-    newButton.addClass("btn btn-light newCity")
-    $("#buttonsGoHere").append(newButton)
-}
+    var city = JSON.parse(localStorage.getItem("city"))
+    console.log(city);
+
+    if(city === null){
+        return false;
+    }
+    else{
+        for (var i = 0; i < city.length; i ++){
+            var newButton = $("<button></button>")
+            newButton.text(city[i])
+            newButton.attr("data-name", city[i])
+            newButton.addClass("btn btn-light newCity")
+            $("#buttonsGoHere").append(newButton)
+            
+        }
+    }
+
 }
 
 
@@ -349,7 +361,8 @@ function getStoredCities(){
     newButton.text(cities)
     newButton.attr("data-name", cities)
     newButton.addClass("btn btn-light newCity")
-    $("#buttonsGoHere").append(newButton)
+    // $("#buttonsGoHere").append(newButton)
+    
 
 }
 

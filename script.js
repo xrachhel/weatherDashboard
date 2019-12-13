@@ -24,7 +24,7 @@ function displayWeather(){
     }).then(function(response){
       console.log(response)
       
-      $("#name").html("<h3>" + response.name + " " + date + "</h3>")
+      $("#name").html("<h2>" + response.name + " " + date + "</h2>")
       $("#temp").html("<p> Temperature: " + response.main.temp + "°F")
       $("#humidity").html("<p> Humidity: " + response.main.humidity + "%</p>")
       $("#wind").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>")
@@ -51,6 +51,10 @@ function displayWeather(){
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
         $("#img").html(icon)
       }
+      else if (main === "Drizzle"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d.png")
+        $("#img").html(icon)
+      }
 
       var lat = response.coord.lat
       var lon = response.coord.lon
@@ -86,6 +90,7 @@ function displayWeather(){
         
     })
     })
+    localStorage.setItem("city", city)
 }
 function displayWeathers(){
     var city = $(this).attr("data-name")
@@ -98,7 +103,7 @@ function displayWeathers(){
     }).then(function(response){
       console.log(response)
       
-      $("#name").html("<h3>" + response.name + " " + date + "</h3>")
+      $("#name").html("<h2>" + response.name + " " + date + "</h2>")
       $("#temp").html("<p> Temperature: " + response.main.temp + "°F")
       $("#humidity").html("<p> Humidity: " + response.main.humidity + "%</p>")
       $("#wind").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>")
@@ -124,6 +129,10 @@ function displayWeathers(){
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
         $("#img").html(icon)
       }
+      else if (main === "Drizzle"){
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d.png")
+        $("#img").html(icon)
+      }
 
       var lat = response.coord.lat
       var lon = response.coord.lon
@@ -162,12 +171,10 @@ function displayWeathers(){
       
 
     })
-    localStorage.setItem("city", city)
+    
 }
 
-function getStoredCities(){
-    var cities = localStorage.getItem("city")
-}
+
 
 function displayForecast(){
     var city = $("#searchBar").val()
@@ -185,7 +192,7 @@ function displayForecast(){
 
         
         for (var i = 0; i < results.length; i+=8){
-            var card = $("<div class='card text-white bg-info mb-3' style='width: 9.5rem; height: 12rem'>")
+            var card = $("<div class='card text-white bg-info mb-3' style='width: 9.5rem; height: 10rem'>")
             var date = results[i].dt_txt
             var res = date.substr(0,10)
             var temp = results[i].main.temp
@@ -219,6 +226,10 @@ function displayForecast(){
                 var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
                 icon.attr("style", "height: 30px; width: 30px;")
             }
+            else if (main === "Drizzle"){
+                var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d.png")
+                icon.attr("style", "height: 30px; width: 30px;")
+              }
              
             
             
@@ -250,7 +261,7 @@ function displayForecasts(){
 
         
         for (var i = 0; i < results.length; i+=8){
-            var card = $("<div class='card text-white bg-info mb-3' style='width: 9.5rem; height: 12rem'>")
+            var card = $("<div class='card text-white bg-info mb-3' style='width: 9.5rem; height: 10rem'>")
             var date = results[i].dt_txt
             var res = date.substr(0,10)
             var temp = results[i].main.temp
@@ -284,6 +295,11 @@ function displayForecasts(){
                 var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/13d.png")
                 icon.attr("style", "height: 30px; width: 30px;")
             }
+            else if (main === "Drizzle"){
+                var icon = $("<img>").attr("src", "http://openweathermap.org/img/wn/10d.png")
+                icon.attr("style", "height: 30px; width: 30px;")
+              }
+             
              
             
             
@@ -325,6 +341,16 @@ for (var i = 0; i < cities.length; i ++){
 $(document).on("click", ".newCity", displayWeathers)
 $(document).on("click", ".newCity", displayForecasts)
 
+getStoredCities()
+function getStoredCities(){
+    
+    var cities = localStorage.getItem("city")
+    var newButton = $("<button></button>")
+    newButton.text(cities)
+    newButton.attr("data-name", cities)
+    newButton.addClass("btn btn-light newCity")
+    $("#buttonsGoHere").append(newButton)
 
+}
 
 

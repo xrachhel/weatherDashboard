@@ -1,29 +1,20 @@
 # Weather Dashboard
 
-For this homework, we had to create a weather dashboard that allows users to search for a city and get its current weather and a 5 day forecast. Searched cities appear on the side, so users can click back onto those cities if they want. The 5 day forecast includes the date, an icon image of the weather, the temperature, and the humidity. I utilized the openWeather API to get weather information and append it to the page dynamically
-## Screenshot 
+This weather dashboard allows users to search for a city and get its current weather and a 5 day forecast. Searched cities appear on the side, so users can click back onto those cities if they want. The 5 day forecast includes the date, an icon image of the weather, the temperature, and the humidity. The OpenWeather API is utilized to get weather information and append it to the page dynamically.
+
 ![site](screenshot.png)
 
-## Built With
+## Deployed Link
+
+[See Live Site](https://xrachhel.github.io/weatherDashboard/)
+
+## Technologies Used
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): used for structuring and creating elements on the DOM
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): used to style html elements on the page
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript): used to create responsive, interactive elements on the page
-* [Jquery] (https://jquery.com/)
-* [Moment.js] (https://momentjs.com/)
-
-## Deployed Link
-
-* [See Live Site](https://xrachhel.github.io/weatherDashboard/)
-
-
-## Authors
-
-Rachel Yeung 
-
-- [Link to Portfolio Site](https://xrachhel.github.io/interactivePortfolio/)
-- [Link to Github](https://github.com/xrachhel/weatherDashboard)
-- [Link to LinkedIn](https://www.linkedin.com/in/rachel-yeung-814986159/)
+* [Jquery](https://jquery.com/): Javascript library to simplify HTML DOM traversal
+* [Moment.js](https://momentjs.com/): JavaScript library to parse, validate, manipulate, and display dates and times
 
 ## Code snippet 
 ```html
@@ -107,4 +98,11 @@ function displayWeather(city){
     
 }
 ```
-This was the function I used to display the daily weather based on the city searched by the user. I first made the AJAX call to grab the information from the openweather API, then displayed the information needed in dynamically made heading and paragraph tags. I used if-else statements to set the image icons, and set the source attribute of a dynamically created image tag as an icon from the openweather website. I nested another AJAX call within my original AJAX call to get the UV index, and grabbed the longitude and latitude from the first AJAX call and set those as variables for my UV AJAX call. I created if else statements to set the color of the UV info button based on the number(red for high, orange for middle, and green for low values)
+This was the function used to display the daily weather based on the city searched by the user. An AJAX call was first made to the OpenWeather API, which then displayed the information needed in dynamically made heading and paragraph tags. Conditional statements were used to to set the image icons using information from the API call. An AJAX call is nested within the original AJAX call to get the UV index by grabbing the longitude and latitude from the first AJAX call and set those as variables for the UV AJAX call. Another conditional statement is used to set the color of the UV info button based on the number(red for high, orange for middle, and green for low values).
+
+## Authors
+
+**Rachel Yeung**
+* [Portfolio](https://rachelyeung.herokuapp.com/)
+* [Github](https://github.com/xrachhel)
+* [LinkedIn](https://www.linkedin.com/in/rachel-yeung-814986159/)

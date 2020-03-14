@@ -90,9 +90,7 @@ function displayWeather(city){
             var uvBtn = $("<button></button>").text(uv)
             uvBtn.addClass("btn btn-success")
             $("#uv").html(uvBtn)
-        }
-        
-        
+        }        
     })
     })
     
